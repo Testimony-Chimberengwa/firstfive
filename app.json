@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "firstfive",
+    "name": "FirstFive",
     "slug": "firstfive",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -14,7 +14,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "FirstFive needs your location to alert you about nearby emergencies.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "FirstFive needs your location to alert you about nearby emergencies.",
+        "UIBackgroundModes": ["location", "remote-notification"]
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -22,7 +27,8 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION", "INTERNET"]
     },
     "web": {
       "bundler": "metro",
@@ -30,7 +36,13 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow FirstFive to use your location"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
